@@ -35,9 +35,8 @@ function AnimatedName({ name, started }: { name: string; started: boolean }) {
           style={{
             display: "inline-block",
             opacity: started ? 1 : 0,
-            transform: started ? "translateY(0)" : "translateY(40px)",
-            filter: started ? "blur(0)" : "blur(6px)",
-            transition: `opacity 0.6s ease ${300 + i * 50}ms, transform 0.6s cubic-bezier(0.22,1,0.36,1) ${300 + i * 50}ms, filter 0.6s ease ${300 + i * 50}ms`,
+            filter: started ? "blur(0)" : "blur(8px)",
+            transition: `opacity 1.4s ease ${400 + i * 120}ms, filter 1.8s ease ${400 + i * 120}ms`,
           }}
         >
           {char === " " ? "\u00A0" : char}
