@@ -129,7 +129,7 @@ export default function Hero({ language }: HeroProps) {
           {/* Логотип в круге */}
           <div style={{
             ...fadeIn(100),
-            marginBottom: "1.5rem",
+            marginBottom: "2rem",
           }}>
             <div style={{
               width: "72px",
@@ -156,7 +156,7 @@ export default function Hero({ language }: HeroProps) {
             width: started ? "3rem" : "0px",
             opacity: started ? 1 : 0,
             transition: "width 0.8s ease 200ms, opacity 0.8s ease 200ms",
-            marginBottom: "2.5rem",
+            marginBottom: "2rem",
           }} />
 
           {/* Подзаголовок */}
