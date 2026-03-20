@@ -61,7 +61,7 @@ export default function Hero({ language }: HeroProps) {
       {/* Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/dscf3938.jpeg"
+          src="https://cdn.poehali.dev/projects/9966625e-7cf6-4175-8046-071e854e4090/files/4081f4f3-6f0f-4f8c-8644-3893b5eedd2a.jpg"
           alt="Евгения Мурашкина — мастер резьбы"
           className="w-full h-full object-cover"
         />
