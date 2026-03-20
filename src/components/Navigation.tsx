@@ -64,41 +64,8 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className={`${logoColor} font-serif text-2xl font-normal tracking-wide transition-colors duration-300`}>
-            Е. Мурашкина
-          </div>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
-            <a
-              href="#biography"
-              className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}
-            >
-              {t.biography}
-            </a>
-            <a
-              href="#gallery"
-              className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}
-            >
-              {t.gallery}
-            </a>
-            <a
-              href="#workshop"
-              className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}
-            >
-              {t.workshop}
-            </a>
-            <a
-              href="#contact"
-              className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}
-            >
-              {t.contact}
-            </a>
-          </div>
-
-          {/* Language Selector */}
-          <div className="flex items-center gap-4">
+          {/* Language Selector — слева */}
+          <div className="flex items-center gap-3">
             <div className="flex gap-2">
               {(["en", "de", "ru"] as const).map((lang) => (
                 <button
@@ -121,6 +88,17 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
+
+          {/* Desktop Menu — по центру */}
+          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8">
+            <a href="#biography" className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}>{t.biography}</a>
+            <a href="#gallery" className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}>{t.gallery}</a>
+            <a href="#workshop" className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}>{t.workshop}</a>
+            <a href="#contact" className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}>{t.contact}</a>
+          </div>
+
+          {/* Пустой div для симметрии */}
+          <div className="hidden md:block w-16" />
         </div>
 
         {/* Mobile Menu */}
