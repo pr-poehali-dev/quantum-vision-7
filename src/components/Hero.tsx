@@ -125,13 +125,13 @@ export default function Hero({ language }: HeroProps) {
             </a>
             <span style={{ color: "rgba(255,255,255,0.2)" }}>·</span>
             <a
-              href="https://facebook.com"
+              href="https://vk.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-gold transition-colors duration-300 text-xs uppercase"
               style={{ color: "rgba(255,255,255,0.5)", letterSpacing: "0.2em" }}
             >
-              Facebook
+              ВКонтакте
             </a>
           </div>
         </div>

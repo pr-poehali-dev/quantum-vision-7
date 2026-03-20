@@ -45,8 +45,8 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navLinkColor = isHeroSection ? "text-white" : "text-charcoal"
-  const navLinkHoverColor = isHeroSection ? "hover:text-gold" : "hover:text-gold"
+  const navLinkColor = "text-gold"
+  const navLinkHoverColor = "hover:text-gold/70"
   const logoColor = isHeroSection ? "text-white" : "text-charcoal"
   const menuButtonColor = isHeroSection ? "text-white" : "text-charcoal"
   const languageButtonActiveColor = "text-gold"
