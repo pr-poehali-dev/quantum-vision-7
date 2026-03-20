@@ -26,22 +26,17 @@ const translations = {
 }
 
 function AnimatedName({ name, started }: { name: string; started: boolean }) {
-  const letters = name.split("")
   return (
-    <span aria-label={name}>
-      {letters.map((char, i) => (
-        <span
-          key={i}
-          style={{
-            display: "inline-block",
-            opacity: started ? 1 : 0,
-            filter: started ? "blur(0)" : "blur(8px)",
-            transition: `opacity 1.4s ease ${400 + i * 120}ms, filter 1.8s ease ${400 + i * 120}ms`,
-          }}
-        >
-          {char === " " ? "\u00A0" : char}
-        </span>
-      ))}
+    <span
+      aria-label={name}
+      style={{
+        opacity: started ? 1 : 0,
+        filter: started ? "blur(0)" : "blur(10px)",
+        transition: "opacity 2.2s ease 400ms, filter 2.6s ease 400ms",
+        color: "rgba(255,255,255,0.75)",
+      }}
+    >
+      {name}
     </span>
   )
 }
