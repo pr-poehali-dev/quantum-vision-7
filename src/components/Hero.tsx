@@ -126,6 +126,29 @@ export default function Hero({ language }: HeroProps) {
       <div className="relative z-10 flex-1 flex flex-col justify-end pb-16 md:pb-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 w-full">
 
+          {/* Логотип в круге */}
+          <div style={{
+            ...fadeIn(100),
+            marginBottom: "1.5rem",
+          }}>
+            <div style={{
+              width: "72px",
+              height: "72px",
+              borderRadius: "50%",
+              border: "1px solid rgba(201,169,97,0.5)",
+              overflow: "hidden",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}>
+              <img
+                src="https://cdn.poehali.dev/projects/9966625e-7cf6-4175-8046-071e854e4090/files/40b63ad4-2185-4492-b6fa-4e3b2799af8d.jpg"
+                alt="Логотип"
+                style={{ width: "100%", height: "100%", objectFit: "cover", opacity: 0.85 }}
+              />
+            </div>
+          </div>
+
           {/* Золотая линия */}
           <div style={{
             height: "1px",
