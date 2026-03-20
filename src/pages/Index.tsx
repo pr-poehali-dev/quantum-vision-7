@@ -3,6 +3,7 @@ import Navigation from "@/components/Navigation"
 import Hero from "@/components/Hero"
 import Biography from "@/components/Biography"
 import Gallery from "@/components/Gallery"
+import Workshop from "@/components/Workshop"
 import Contact from "@/components/Contact"
 import Footer from "@/components/Footer"
 
@@ -15,6 +16,7 @@ export default function Index() {
       <Hero language={language} />
       <Biography language={language} />
       <Gallery language={language} />
+      <Workshop language={language} />
       <Contact language={language} />
       <Footer language={language} />
     </div>

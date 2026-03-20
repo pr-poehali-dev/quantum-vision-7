@@ -10,16 +10,19 @@ const translations = {
   en: {
     biography: "About",
     gallery: "Gallery",
+    workshop: "Workshop",
     contact: "Contact",
   },
   de: {
     biography: "Uber mich",
     gallery: "Galerie",
+    workshop: "Werkstatt",
     contact: "Kontakt",
   },
   ru: {
     biography: "О мастере",
     gallery: "Галерея",
+    workshop: "Мастерская",
     contact: "Контакты",
   },
 }
@@ -81,6 +84,12 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
               {t.gallery}
             </a>
             <a
+              href="#workshop"
+              className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}
+            >
+              {t.workshop}
+            </a>
+            <a
               href="#contact"
               className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}
             >
@@ -130,6 +139,12 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
               className={`block text-sm ${mobileLinkColor} hover:text-gold transition-colors duration-300 py-2`}
             >
               {t.gallery}
+            </a>
+            <a
+              href="#workshop"
+              className={`block text-sm ${mobileLinkColor} hover:text-gold transition-colors duration-300 py-2`}
+            >
+              {t.workshop}
             </a>
             <a
               href="#contact"

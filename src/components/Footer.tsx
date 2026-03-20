@@ -10,6 +10,7 @@ const translations = {
     quickLinks: "Quick Links",
     biography: "About",
     gallery: "Gallery",
+    workshop: "Workshop",
     privacyPolicy: "Privacy Policy",
     terms: "Terms",
   },
@@ -20,6 +21,7 @@ const translations = {
     quickLinks: "Schnelllinks",
     biography: "Uber mich",
     gallery: "Galerie",
+    workshop: "Werkstatt",
     privacyPolicy: "Datenschutz",
     terms: "AGB",
   },
@@ -30,6 +32,7 @@ const translations = {
     quickLinks: "Навигация",
     biography: "О мастере",
     gallery: "Галерея",
+    workshop: "Мастерская",
     privacyPolicy: "Политика конфиденциальности",
     terms: "Условия",
   },
@@ -58,6 +61,11 @@ export default function Footer({ language }: FooterProps) {
               <li>
                 <a href="#gallery" className="hover:text-gold transition-colors">
                   {t.gallery}
+                </a>
+              </li>
+              <li>
+                <a href="#workshop" className="hover:text-gold transition-colors">
+                  {t.workshop}
                 </a>
               </li>
             </ul>
