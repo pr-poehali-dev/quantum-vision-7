@@ -29,48 +29,56 @@ const translations = {
   },
 }
 
+const IMG = {
+  motherChild: "https://cdn.poehali.dev/projects/9966625e-7cf6-4175-8046-071e854e4090/files/940103a2-4617-4914-9e27-f55d951674dd.jpg",
+  bear: "https://cdn.poehali.dev/projects/9966625e-7cf6-4175-8046-071e854e4090/files/898cf5d1-fed0-4067-a381-6ff04cd30fef.jpg",
+  fox: "https://cdn.poehali.dev/projects/9966625e-7cf6-4175-8046-071e854e4090/files/82291bbf-a079-4247-b75f-e8dd277a6981.jpg",
+  children: "https://cdn.poehali.dev/projects/9966625e-7cf6-4175-8046-071e854e4090/files/8210b632-ca67-4fc4-bd6f-f38e34ee79d3.jpg",
+  rabbit: "https://cdn.poehali.dev/projects/9966625e-7cf6-4175-8046-071e854e4090/files/319c43d0-0256-4431-834b-782fc1bbf2e8.jpg",
+}
+
 const galleryItems = {
   en: [
-    { id: 1, image: "/images/dscf3768.jpeg", title: "Netsuke — Mother and Child" },
-    { id: 2, image: "/images/dscf3797.jpeg", title: "Bear Cub — Bone Carving" },
-    { id: 3, image: "/images/dscf3805.jpeg", title: "Composition with Animals" },
-    { id: 4, image: "/images/dscf3862.jpeg", title: "Inlay Work — Detail" },
-    { id: 5, image: "/images/dscf3917.jpeg", title: "Traditional Netsuke" },
+    { id: 1, image: IMG.motherChild, title: "Netsuke — Mother and Child" },
+    { id: 2, image: IMG.bear, title: "Bear Cub — Bone Carving" },
+    { id: 3, image: IMG.fox, title: "Fox with Cubs" },
+    { id: 4, image: IMG.children, title: "Two Children Playing" },
+    { id: 5, image: IMG.rabbit, title: "Rabbit — Traditional Netsuke" },
   ],
   de: [
-    { id: 1, image: "/images/dscf3768.jpeg", title: "Netsuke — Mutter und Kind" },
-    { id: 2, image: "/images/dscf3797.jpeg", title: "Bärenjunges — Knochenschnitzerei" },
-    { id: 3, image: "/images/dscf3805.jpeg", title: "Komposition mit Tieren" },
-    { id: 4, image: "/images/dscf3862.jpeg", title: "Einlegearbeit — Detail" },
-    { id: 5, image: "/images/dscf3917.jpeg", title: "Traditionelles Netsuke" },
+    { id: 1, image: IMG.motherChild, title: "Netsuke — Mutter und Kind" },
+    { id: 2, image: IMG.bear, title: "Bärenjunges — Knochenschnitzerei" },
+    { id: 3, image: IMG.fox, title: "Fuchs mit Jungen" },
+    { id: 4, image: IMG.children, title: "Zwei spielende Kinder" },
+    { id: 5, image: IMG.rabbit, title: "Hase — Traditionelles Netsuke" },
   ],
   ru: [
-    { id: 1, image: "/images/dscf3768.jpeg", title: "Нэцкэ — Мать и дитя" },
-    { id: 2, image: "/images/dscf3797.jpeg", title: "Медвежонок — резьба по кости" },
-    { id: 3, image: "/images/dscf3805.jpeg", title: "Композиция с животными" },
-    { id: 4, image: "/images/dscf3862.jpeg", title: "Инкрустация — деталь" },
-    { id: 5, image: "/images/dscf3917.jpeg", title: "Традиционное нэцкэ" },
+    { id: 1, image: IMG.motherChild, title: "Нэцкэ — Мать и дитя" },
+    { id: 2, image: IMG.bear, title: "Медвежонок — резьба по кости" },
+    { id: 3, image: IMG.fox, title: "Лиса с лисятами" },
+    { id: 4, image: IMG.children, title: "Двое детей за игрой" },
+    { id: 5, image: IMG.rabbit, title: "Заяц — традиционное нэцкэ" },
   ],
 }
 
 const availableItems = {
   en: [
-    { id: 101, image: "/images/dscf3768.jpeg", title: "Netsuke «Fox and Cub»", description: "Mammoth bone, inlay, tinting. Size: 4×3 cm" },
-    { id: 102, image: "/images/dscf3805.jpeg", title: "Composition «Winter»", description: "Bone, patination. Size: 6×4 cm" },
-    { id: 103, image: "/images/dscf3862.jpeg", title: "Netsuke «Bear»", description: "Mammoth bone, metal inlay. Size: 3×3 cm" },
-    { id: 104, image: "/images/dscf3917.jpeg", title: "Netsuke «Mother and Child»", description: "Bone, multi-layer tinting. Size: 5×3 cm" },
+    { id: 101, image: IMG.fox, title: "Netsuke «Fox and Cub»", description: "Mammoth bone, inlay, tinting. Size: 4×3 cm" },
+    { id: 102, image: IMG.children, title: "Composition «Two Children»", description: "Bone, patination. Size: 6×4 cm" },
+    { id: 103, image: IMG.bear, title: "Netsuke «Bear»", description: "Mammoth bone, metal inlay. Size: 3×3 cm" },
+    { id: 104, image: IMG.motherChild, title: "Netsuke «Mother and Child»", description: "Bone, multi-layer tinting. Size: 5×3 cm" },
   ],
   de: [
-    { id: 101, image: "/images/dscf3768.jpeg", title: "Netsuke «Fuchs und Junges»", description: "Mammut-Knochen, Einlage, Tönung. Größe: 4×3 cm" },
-    { id: 102, image: "/images/dscf3805.jpeg", title: "Komposition «Winter»", description: "Knochen, Patinierung. Größe: 6×4 cm" },
-    { id: 103, image: "/images/dscf3862.jpeg", title: "Netsuke «Bär»", description: "Mammut-Knochen, Metalleinlage. Größe: 3×3 cm" },
-    { id: 104, image: "/images/dscf3917.jpeg", title: "Netsuke «Mutter und Kind»", description: "Knochen, mehrschichtige Tönung. Größe: 5×3 cm" },
+    { id: 101, image: IMG.fox, title: "Netsuke «Fuchs und Junges»", description: "Mammut-Knochen, Einlage, Tönung. Größe: 4×3 cm" },
+    { id: 102, image: IMG.children, title: "Komposition «Zwei Kinder»", description: "Knochen, Patinierung. Größe: 6×4 cm" },
+    { id: 103, image: IMG.bear, title: "Netsuke «Bär»", description: "Mammut-Knochen, Metalleinlage. Größe: 3×3 cm" },
+    { id: 104, image: IMG.motherChild, title: "Netsuke «Mutter und Kind»", description: "Knochen, mehrschichtige Tönung. Größe: 5×3 cm" },
   ],
   ru: [
-    { id: 101, image: "/images/dscf3768.jpeg", title: "Нэцкэ «Лиса с лисёнком»", description: "Мамонтовая кость, инкрустация, тонировка. Размер: 4×3 см" },
-    { id: 102, image: "/images/dscf3805.jpeg", title: "Композиция «Зима»", description: "Кость, патинирование. Размер: 6×4 см" },
-    { id: 103, image: "/images/dscf3862.jpeg", title: "Нэцкэ «Медведь»", description: "Мамонтовая кость, инкрустация металлом. Размер: 3×3 см" },
-    { id: 104, image: "/images/dscf3917.jpeg", title: "Нэцкэ «Мать и дитя»", description: "Кость, многослойная тонировка. Размер: 5×3 см" },
+    { id: 101, image: IMG.fox, title: "Нэцкэ «Лиса с лисёнком»", description: "Мамонтовая кость, инкрустация, тонировка. Размер: 4×3 см" },
+    { id: 102, image: IMG.children, title: "Композиция «Двое детей»", description: "Кость, патинирование. Размер: 6×4 см" },
+    { id: 103, image: IMG.bear, title: "Нэцкэ «Медведь»", description: "Мамонтовая кость, инкрустация металлом. Размер: 3×3 см" },
+    { id: 104, image: IMG.motherChild, title: "Нэцкэ «Мать и дитя»", description: "Кость, многослойная тонировка. Размер: 5×3 см" },
   ],
 }
 
