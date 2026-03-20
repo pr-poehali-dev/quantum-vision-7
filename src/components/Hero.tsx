@@ -70,7 +70,7 @@ export default function Hero({ language }: HeroProps) {
       </div>
 
       {/* Content — прижато к низу */}
-      <div className="relative z-10 flex-1 flex flex-col justify-end pb-24 md:pb-32">
+      <div className="relative z-10 flex-1 flex flex-col justify-end pb-16 md:pb-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 w-full">
 
           {/* Золотая линия */}
@@ -131,7 +131,7 @@ export default function Hero({ language }: HeroProps) {
 
       {/* Scroll indicator */}
       <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="relative z-10 flex flex-col items-center gap-2 pb-8"
         style={fadeIn(1800)}
       >
         <span className="text-xs uppercase" style={{ color: "rgba(255,255,255,0.35)", letterSpacing: "0.2em" }}>
