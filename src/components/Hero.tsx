@@ -8,22 +8,26 @@ const translations = {
   en: {
     name: "Evgenia Murashkina",
     subtitle: "Netsuke & Bone Carving Master",
-    description: "Over 10 years of crafting exquisite miniature sculptures — fine detailing, inlay work, tinting, and signature compositions with children and animals",
     scroll: "Scroll",
   },
   de: {
     name: "Evgenia Murashkina",
     subtitle: "Meisterin der Netsuke- und Knochenschnitzerei",
-    description: "Über 10 Jahre Erfahrung in der Schaffung exquisiter Miniaturskulpturen — Feindetaillierung, Einlegearbeiten und charakteristische Kompositionen",
     scroll: "Scroll",
   },
   ru: {
     name: "Евгения Мурашкина",
     subtitle: "Мастер резьбы по кости",
-    description: "Более 10 лет создания изысканных миниатюр — тонкая проработка деталей, инкрустация, тонировка и авторские композиции с детьми и животными",
     scroll: "Листать",
   },
 }
+
+const slides = [
+  "https://cdn.poehali.dev/projects/9966625e-7cf6-4175-8046-071e854e4090/files/4081f4f3-6f0f-4f8c-8644-3893b5eedd2a.jpg",
+  "https://cdn.poehali.dev/projects/9966625e-7cf6-4175-8046-071e854e4090/files/8eded800-3946-4e58-9191-a17d178c55e3.jpg",
+  "https://cdn.poehali.dev/projects/9966625e-7cf6-4175-8046-071e854e4090/files/35ed2e4c-bc67-48a0-82b8-5016fe2900ca.jpg",
+  "https://cdn.poehali.dev/projects/9966625e-7cf6-4175-8046-071e854e4090/files/8fca4e3b-e1be-4a2e-a7fe-4583fb05db44.jpg",
+]
 
 function AnimatedName({ name, started }: { name: string; started: boolean }) {
   return (
@@ -44,11 +48,27 @@ function AnimatedName({ name, started }: { name: string; started: boolean }) {
 export default function Hero({ language }: HeroProps) {
   const t = translations[language]
   const [started, setStarted] = useState(false)
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [nextSlide, setNextSlide] = useState(1)
+  const [transitioning, setTransitioning] = useState(false)
 
   useEffect(() => {
     const timer = setTimeout(() => setStarted(true), 100)
     return () => clearTimeout(timer)
   }, [])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const next = (currentSlide + 1) % slides.length
+      setNextSlide(next)
+      setTransitioning(true)
+      setTimeout(() => {
+        setCurrentSlide(next)
+        setTransitioning(false)
+      }, 1800)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [currentSlide])
 
   const fadeIn = (delay: number): React.CSSProperties => ({
     opacity: started ? 1 : 0,
@@ -58,18 +78,51 @@ export default function Hero({ language }: HeroProps) {
 
   return (
     <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden">
-      {/* Background */}
+      {/* Текущий слайд */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://cdn.poehali.dev/projects/9966625e-7cf6-4175-8046-071e854e4090/files/4081f4f3-6f0f-4f8c-8644-3893b5eedd2a.jpg"
-          alt="Евгения Мурашкина — мастер резьбы"
+          src={slides[currentSlide]}
+          alt="Мастерская Евгении Мурашкиной"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/75" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
       </div>
 
-      {/* Content — прижато к низу */}
+      {/* Следующий слайд — проявляется поверх */}
+      <div
+        className="absolute inset-0 z-1"
+        style={{ opacity: transitioning ? 1 : 0, transition: "opacity 1.8s ease" }}
+      >
+        <img
+          src={slides[nextSlide]}
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
+      </div>
+
+      {/* Индикаторы слайдов */}
+      <div className="absolute bottom-20 right-8 z-10 flex flex-col gap-2">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrentSlide(i)}
+            style={{
+              width: "2px",
+              height: i === currentSlide ? "24px" : "12px",
+              backgroundColor: i === currentSlide ? "rgba(201,169,97,0.9)" : "rgba(255,255,255,0.3)",
+              border: "none",
+              padding: 0,
+              transition: "all 0.4s ease",
+              cursor: "pointer",
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Content */}
       <div className="relative z-10 flex-1 flex flex-col justify-end pb-16 md:pb-24">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 w-full">
 
@@ -96,7 +149,7 @@ export default function Hero({ language }: HeroProps) {
             {t.subtitle}
           </p>
 
-          {/* Имя — посимвольная анимация */}
+          {/* Имя */}
           <h1
             className="mb-8 leading-none"
             style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)", fontWeight: 300 }}
