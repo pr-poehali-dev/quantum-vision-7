@@ -4,19 +4,19 @@ interface HeroProps {
 
 const translations = {
   en: {
-    title: "Alexander Voss",
-    subtitle: "Classical Pianist",
-    description: "A virtuoso performer captivating audiences at the world's most prestigious concert halls",
+    title: "Evgenia Murashkina",
+    subtitle: "Netsuke & Bone Carving Master",
+    description: "Over 10 years of crafting exquisite miniature sculptures from bone — fine detailing, inlay work, tinting, and signature compositions with children and animals",
   },
   de: {
-    title: "Alexander Voss",
-    subtitle: "Klassischer Pianist",
-    description: "Ein virtuoser Performer, der Publikum in den renommiertesten Konzertsalen der Welt fasziniert",
+    title: "Evgenia Murashkina",
+    subtitle: "Meisterin der Netsuke- und Knochenschnitzerei",
+    description: "Uber 10 Jahre Erfahrung in der Schaffung exquisiter Miniaturskulpturen aus Knochen — Feindetaillierung, Einlegearbeiten, Tontechniken und charakteristische Kompositionen mit Kindern und Tieren",
   },
   ru: {
-    title: "Александр Фосс",
-    subtitle: "Классический пианист",
-    description: "Виртуозный исполнитель, очаровывающий публику в престижнейших концертных залах мира",
+    title: "Евгения Мурашкина",
+    subtitle: "Мастер резьбы нэцкэ и фигурок из кости",
+    description: "Более 10 лет создания изысканных миниатюр из кости — тонкая проработка деталей, инкрустация, тонировка и авторские композиции с детьми и животными",
   },
 }
 
@@ -28,8 +28,8 @@ export default function Hero({ language }: HeroProps) {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/DSCF3797.JPG-D5CA7ICwqzRlSb4xwdgFIdtxI4Epof.jpeg"
-          alt="Pianist performing"
+          src="/images/dscf3938.jpeg"
+          alt="Евгения Мурашкина — мастер резьбы"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-charcoal/35"></div>
