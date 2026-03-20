@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react"
+
 interface HeroProps {
   language: "en" | "de" | "ru"
 }
@@ -23,15 +25,20 @@ const translations = {
   },
 }
 
-function AnimatedName({ name }: { name: string }) {
+function AnimatedName({ name, started }: { name: string; started: boolean }) {
   const letters = name.split("")
   return (
     <span aria-label={name}>
       {letters.map((char, i) => (
         <span
           key={i}
-          className="animate-letter"
-          style={{ animationDelay: `${300 + i * 45}ms` }}
+          style={{
+            display: "inline-block",
+            opacity: started ? 1 : 0,
+            transform: started ? "translateY(0)" : "translateY(40px)",
+            filter: started ? "blur(0)" : "blur(6px)",
+            transition: `opacity 0.6s ease ${300 + i * 50}ms, transform 0.6s cubic-bezier(0.22,1,0.36,1) ${300 + i * 50}ms, filter 0.6s ease ${300 + i * 50}ms`,
+          }}
         >
           {char === " " ? "\u00A0" : char}
         </span>
@@ -42,6 +49,18 @@ function AnimatedName({ name }: { name: string }) {
 
 export default function Hero({ language }: HeroProps) {
   const t = translations[language]
+  const [started, setStarted] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setStarted(true), 100)
+    return () => clearTimeout(timer)
+  }, [])
+
+  const fadeIn = (delay: number): React.CSSProperties => ({
+    opacity: started ? 1 : 0,
+    transform: started ? "translateY(0)" : "translateY(24px)",
+    transition: `opacity 1s ease ${delay}ms, transform 1s ease ${delay}ms`,
+  })
 
   return (
     <section id="hero" className="relative min-h-screen flex flex-col overflow-hidden">
@@ -52,61 +71,71 @@ export default function Hero({ language }: HeroProps) {
           alt="Евгения Мурашкина — мастер резьбы"
           className="w-full h-full object-cover"
         />
-        {/* Многослойное затемнение для атмосферы */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/75" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent" />
       </div>
 
-      {/* Логотип слева вверху (поверх навигации не мешает — nav прозрачная) */}
+      {/* Content — прижато к низу */}
       <div className="relative z-10 flex-1 flex flex-col justify-end pb-24 md:pb-32">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 w-full">
 
-          {/* Декоративная линия сверху */}
-          <div
-            className="animate-line-expand h-px bg-gold/60 mb-10"
-            style={{ animationDelay: "200ms" }}
-          />
+          {/* Золотая линия */}
+          <div style={{
+            height: "1px",
+            backgroundColor: "rgba(201,169,97,0.6)",
+            width: started ? "3rem" : "0px",
+            opacity: started ? 1 : 0,
+            transition: "width 0.8s ease 200ms, opacity 0.8s ease 200ms",
+            marginBottom: "2.5rem",
+          }} />
 
-          {/* Подзаголовок — появляется первым */}
+          {/* Подзаголовок */}
           <p
-            className="animate-slide-up-soft text-gold/90 text-xs md:text-sm tracking-[0.3em] uppercase font-light mb-6"
-            style={{ animationDelay: "250ms" }}
+            className="text-xs md:text-sm font-light uppercase"
+            style={{
+              ...fadeIn(250),
+              color: "rgba(201,169,97,0.9)",
+              letterSpacing: "0.3em",
+              marginBottom: "1.5rem",
+            }}
           >
             {t.subtitle}
           </p>
 
           {/* Имя — посимвольная анимация */}
-          <h1 className="text-white mb-8 leading-none tracking-tight">
-            <AnimatedName name={t.name} />
+          <h1
+            className="text-white mb-8 leading-none"
+            style={{ fontSize: "clamp(2.5rem, 7vw, 5.5rem)", fontWeight: 300 }}
+          >
+            <AnimatedName name={t.name} started={started} />
           </h1>
 
           {/* Описание */}
           <p
-            className="animate-slide-up-soft text-white/70 font-light max-w-xl text-base md:text-lg leading-relaxed mb-12"
-            style={{ animationDelay: "1100ms" }}
+            className="font-light max-w-xl text-base md:text-lg leading-relaxed mb-12"
+            style={{ ...fadeIn(1100), color: "rgba(255,255,255,0.75)" }}
           >
             {t.description}
           </p>
 
           {/* Соцсети */}
-          <div
-            className="animate-fade-in flex gap-6"
-            style={{ animationDelay: "1400ms" }}
-          >
+          <div className="flex gap-6" style={fadeIn(1400)}>
             <a
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/60 hover:text-gold transition-colors duration-300 text-xs tracking-widest uppercase"
+              className="hover:text-gold transition-colors duration-300 text-xs uppercase"
+              style={{ color: "rgba(255,255,255,0.5)", letterSpacing: "0.2em" }}
             >
               Instagram
             </a>
-            <span className="text-white/20">·</span>
+            <span style={{ color: "rgba(255,255,255,0.2)" }}>·</span>
             <a
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/60 hover:text-gold transition-colors duration-300 text-xs tracking-widest uppercase"
+              className="hover:text-gold transition-colors duration-300 text-xs uppercase"
+              style={{ color: "rgba(255,255,255,0.5)", letterSpacing: "0.2em" }}
             >
               Facebook
             </a>
@@ -116,11 +145,16 @@ export default function Hero({ language }: HeroProps) {
 
       {/* Scroll indicator */}
       <div
-        className="animate-fade-in absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-        style={{ animationDelay: "1800ms" }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        style={fadeIn(1800)}
       >
-        <span className="text-white/40 text-xs tracking-widest uppercase">{t.scroll}</span>
-        <div className="w-px h-10 bg-gradient-to-b from-white/40 to-transparent animate-pulse" />
+        <span className="text-xs uppercase" style={{ color: "rgba(255,255,255,0.35)", letterSpacing: "0.2em" }}>
+          {t.scroll}
+        </span>
+        <div
+          className="w-px h-10"
+          style={{ background: "linear-gradient(to bottom, rgba(255,255,255,0.4), transparent)" }}
+        />
       </div>
     </section>
   )
