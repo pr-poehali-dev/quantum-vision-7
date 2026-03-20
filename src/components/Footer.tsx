@@ -9,7 +9,6 @@ const translations = {
     subtitle: "Netsuke & Bone Carving Master",
     quickLinks: "Quick Links",
     biography: "About",
-    concerts: "Exhibitions",
     gallery: "Gallery",
     privacyPolicy: "Privacy Policy",
     terms: "Terms",
@@ -20,7 +19,6 @@ const translations = {
     subtitle: "Meisterin der Netsuke- und Knochenschnitzerei",
     quickLinks: "Schnelllinks",
     biography: "Uber mich",
-    concerts: "Ausstellungen",
     gallery: "Galerie",
     privacyPolicy: "Datenschutz",
     terms: "AGB",
@@ -31,7 +29,6 @@ const translations = {
     subtitle: "Мастер резьбы нэцкэ и фигурок из кости",
     quickLinks: "Навигация",
     biography: "О мастере",
-    concerts: "Выставки",
     gallery: "Галерея",
     privacyPolicy: "Политика конфиденциальности",
     terms: "Условия",
@@ -56,11 +53,6 @@ export default function Footer({ language }: FooterProps) {
               <li>
                 <a href="#biography" className="hover:text-gold transition-colors">
                   {t.biography}
-                </a>
-              </li>
-              <li>
-                <a href="#concerts" className="hover:text-gold transition-colors">
-                  {t.concerts}
                 </a>
               </li>
               <li>

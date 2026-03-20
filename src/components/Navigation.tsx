@@ -9,19 +9,16 @@ interface NavigationProps {
 const translations = {
   en: {
     biography: "About",
-    concerts: "Exhibitions",
     gallery: "Gallery",
     contact: "Contact",
   },
   de: {
     biography: "Uber mich",
-    concerts: "Ausstellungen",
     gallery: "Galerie",
     contact: "Kontakt",
   },
   ru: {
     biography: "О мастере",
-    concerts: "Выставки",
     gallery: "Галерея",
     contact: "Контакты",
   },
@@ -78,12 +75,6 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
               {t.biography}
             </a>
             <a
-              href="#concerts"
-              className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}
-            >
-              {t.concerts}
-            </a>
-            <a
               href="#gallery"
               className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}
             >
@@ -133,12 +124,6 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
               className={`block text-sm ${mobileLinkColor} hover:text-gold transition-colors duration-300 py-2`}
             >
               {t.biography}
-            </a>
-            <a
-              href="#concerts"
-              className={`block text-sm ${mobileLinkColor} hover:text-gold transition-colors duration-300 py-2`}
-            >
-              {t.concerts}
             </a>
             <a
               href="#gallery"
