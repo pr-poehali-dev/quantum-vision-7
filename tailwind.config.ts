@@ -18,7 +18,16 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Lato', 'sans-serif'],
+				serif: ['Playfair Display', 'serif'],
+			},
 			colors: {
+				cream: 'var(--cream)',
+				charcoal: 'var(--charcoal)',
+				taupe: 'var(--taupe)',
+				gold: 'var(--gold)',
+				'warm-white': 'var(--warm-white)',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
