@@ -104,14 +104,6 @@ export default function Hero({ language }: HeroProps) {
             <AnimatedName name={t.name} started={started} />
           </h1>
 
-          {/* Описание */}
-          <p
-            className="font-light max-w-xl text-base md:text-lg leading-relaxed mb-12"
-            style={{ ...fadeIn(1100), color: "rgba(255,255,255,0.75)" }}
-          >
-            {t.description}
-          </p>
-
           {/* Соцсети */}
           <div className="flex gap-6" style={fadeIn(1400)}>
             <a

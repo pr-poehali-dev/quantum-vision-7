@@ -90,11 +90,22 @@ export default function Navigation({ language, onLanguageChange }: NavigationPro
           </div>
 
           {/* Desktop Menu — по центру */}
-          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-8">
-            <a href="#biography" className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}>{t.biography}</a>
-            <a href="#gallery" className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}>{t.gallery}</a>
-            <a href="#workshop" className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}>{t.workshop}</a>
-            <a href="#contact" className={`text-sm ${navLinkColor} ${navLinkHoverColor} transition-colors duration-300`}>{t.contact}</a>
+          <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center gap-10">
+            {[
+              { href: "#biography", label: t.biography },
+              { href: "#gallery", label: t.gallery },
+              { href: "#workshop", label: t.workshop },
+              { href: "#contact", label: t.contact },
+            ].map(({ href, label }) => (
+              <a
+                key={href}
+                href={href}
+                className="hover:opacity-60 transition-opacity duration-300"
+                style={{ color: "rgba(201,169,97,0.85)", fontSize: "0.65rem", letterSpacing: "0.25em", textTransform: "uppercase" }}
+              >
+                {label}
+              </a>
+            ))}
           </div>
 
           {/* Пустой div для симметрии */}
