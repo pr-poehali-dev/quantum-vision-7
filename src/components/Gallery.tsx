@@ -166,11 +166,7 @@ export default function Gallery({ language }: GalleryProps) {
                     alt={item.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute top-3 left-3">
-                    <span className="bg-gold text-white text-xs font-medium px-2 py-1">
-                      {t.available}
-                    </span>
-                  </div>
+
                 </div>
                 <div className="p-4 flex flex-col flex-1">
                   <p className="text-charcoal font-medium mb-1 text-sm">{item.title}</p>
