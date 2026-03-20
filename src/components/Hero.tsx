@@ -33,7 +33,7 @@ function AnimatedName({ name, started }: { name: string; started: boolean }) {
         opacity: started ? 1 : 0,
         filter: started ? "blur(0)" : "blur(10px)",
         transition: "opacity 2.2s ease 400ms, filter 2.6s ease 400ms",
-        color: "rgba(255,255,255,0.75)",
+        color: "rgba(255,255,255,0.45)",
       }}
     >
       {name}
@@ -98,8 +98,8 @@ export default function Hero({ language }: HeroProps) {
 
           {/* Имя — посимвольная анимация */}
           <h1
-            className="text-white mb-8 leading-none"
-            style={{ fontSize: "clamp(2.5rem, 7vw, 5.5rem)", fontWeight: 300 }}
+            className="mb-8 leading-none"
+            style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)", fontWeight: 300 }}
           >
             <AnimatedName name={t.name} started={started} />
           </h1>
